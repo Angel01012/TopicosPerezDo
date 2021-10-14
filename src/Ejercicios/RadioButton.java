@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.AbstractButton;
+import javax.swing.JOptionPane;
 import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -94,10 +95,6 @@ public class RadioButton extends JFrame {
 			}
 		});
 		
-		JLabel lblCalificacion = new JLabel("Calificacion");
-		lblCalificacion.setVisible(false);
-		lblCalificacion.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		
 		JButton btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.setVisible(false);
 
@@ -118,11 +115,8 @@ public class RadioButton extends JFrame {
 							.addComponent(btnSalir)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnFinalizar))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(panel, GroupLayout.PREFERRED_SIZE, 299, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(lblCalificacion)))
-					.addContainerGap(174, Short.MAX_VALUE))
+						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 299, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(202, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -130,9 +124,7 @@ public class RadioButton extends JFrame {
 					.addGap(46)
 					.addComponent(lblPregunta)
 					.addGap(18)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblCalificacion))
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnAnterior)
@@ -140,7 +132,7 @@ public class RadioButton extends JFrame {
 						.addComponent(btnSiguiente)
 						.addComponent(btnSalir)
 						.addComponent(btnFinalizar))
-					.addContainerGap(55, Short.MAX_VALUE))
+					.addContainerGap(51, Short.MAX_VALUE))
 		);
 		
 		JRadioButton rdbOpcion1 = new JRadioButton("Oracle JDK, OpenJDK \n");
@@ -373,10 +365,9 @@ public class RadioButton extends JFrame {
 					}
 				}
 				R+=Calificacion;
-				lblCalificacion.setVisible(true);
-				lblCalificacion.setText(R);
 				btnFinalizar.setEnabled(false);
 				btnAnterior.setEnabled(false);
+				JOptionPane.showMessageDialog(null, R);
 			}
 		});
 		
